@@ -75,7 +75,7 @@
       - get: pal-tracker
       - get: pal-tracker-artifacts
         trigger: true
-        passed: [build]
+        passed: [deploy-review]
       - put: production-deployment
         params:
           manifest: pal-tracker/manifest-production.yml
