@@ -15,11 +15,8 @@ import javax.sql.DataSource;
 @SpringBootApplication
 public class PalTrackerApplication {
 
-    private MysqlDataSource dataSource = new MysqlDataSource();
-
     @Bean
-    public TimeEntryRepository timeEntryRepository() {
-        dataSource.setUrl(System.getenv("SPRING_DATASOURCE_URL"));
+    public TimeEntryRepository timeEntryRepository(DataSource dataSource) {
         return new JdbcTimeEntryRepository(dataSource);
     }
 
